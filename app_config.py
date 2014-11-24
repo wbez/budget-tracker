@@ -22,7 +22,7 @@ PROJECT_FILENAME = '$NEW_PROJECT_FILENAME'
 
 # The name of the repository containing the source
 REPOSITORY_NAME = '$NEW_REPOSITORY_NAME'
-GITHUB_USERNAME = 'nprapps'
+GITHUB_USERNAME = 'chagan'
 REPOSITORY_URL = 'git@github.com:%s/%s.git' % (GITHUB_USERNAME, REPOSITORY_NAME)
 REPOSITORY_ALT_URL = None # 'git@bitbucket.org:nprapps/%s.git' % REPOSITORY_NAME'
 
@@ -34,18 +34,18 @@ ASSETS_SLUG = '$NEW_PROJECT_SLUG'
 DEPLOYMENT
 """
 PRODUCTION_S3_BUCKET = {
-    'bucket_name': 'apps.npr.org',
-    'region': 'us-east-1'
+    'bucket_name': 'app-template-production',
+    'region': 'US Standard'
 }
 
 STAGING_S3_BUCKET = {
-    'bucket_name': 'stage-apps.npr.org',
-    'region': 'us-east-1'
+    'bucket_name': 'app-template-staging',
+    'region': 'US Standard'
 }
 
 ASSETS_S3_BUCKET = {
-    'bucket_name': 'assets.apps.npr.org',
-    'region': 'us-east-1'
+    'bucket_name': 'app-template-assests',
+    'region': 'US Standard'
 }
 
 DEFAULT_MAX_AGE = 20 
@@ -94,7 +94,7 @@ DEBUG = True
 """
 COPY EDITING
 """
-COPY_GOOGLE_DOC_URL = 'https://docs.google.com/spreadsheet/ccc?key=0AlXMOHKxzQVRdHZuX1UycXplRlBfLVB0UVNldHJYZmc&usp=drive_web#gid=1'
+COPY_GOOGLE_DOC_URL = 'https://docs.google.com/spreadsheet/ccc?key=0AkY5o_aAkwFydEctaXllbzlGUGRLanVQc0hSMlo5YXc#gid=1'
 COPY_PATH = 'data/copy.xlsx'
 
 """
@@ -116,14 +116,14 @@ NPR_DFP = {
 """
 SERVICES
 """
-GOOGLE_ANALYTICS = {
-    'ACCOUNT_ID': 'UA-5828686-4',
-    'DOMAIN': PRODUCTION_S3_BUCKET['bucket_name'],
-    'TOPICS': '' # e.g. '[1014,3,1003,1002,1001]'
-}
+# GOOGLE_ANALYTICS = {
+#     'ACCOUNT_ID': 'none',
+#     'DOMAIN': PRODUCTION_S3_BUCKET['bucket_name'],
+#     'TOPICS': '' # e.g. '[1014,3,1003,1002,1001]'
+# }
 
-DISQUS_API_KEY = 'tIbSzEhGBE9NIptbnQWn4wy1gZ546CsQ2IHHtxJiYAceyyPoAkDkVnQfCifmCaQW'
-DISQUS_UUID = '$NEW_DISQUS_UUID'
+# DISQUS_API_KEY = 'tIbSzEhGBE9NIptbnQWn4wy1gZ546CsQ2IHHtxJiYAceyyPoAkDkVnQfCifmCaQW'
+# DISQUS_UUID = '$NEW_DISQUS_UUID'
 
 """
 Utilities
