@@ -51,8 +51,8 @@ ASSETS_S3_BUCKET = {
 DEFAULT_MAX_AGE = 20 
 ASSETS_MAX_AGE = 86400
 
-PRODUCTION_SERVERS = ['cron.nprapps.org']
-STAGING_SERVERS = ['50.112.92.131']
+PRODUCTION_SERVERS = ['']
+STAGING_SERVERS = ['']
 
 # Should code be deployed to the web/cron servers?
 DEPLOY_TO_SERVERS = False
@@ -103,27 +103,16 @@ SHARING
 SHARE_URL = 'http://%s/%s/' % (PRODUCTION_S3_BUCKET['bucket_name'], PROJECT_SLUG)
 
 """
-ADS
-"""
-
-NPR_DFP = {
-    'STORY_ID': '1002',
-    'TARGET': 'homepage',
-    'ENVIRONMENT': 'NPRTEST',
-    'TESTSERVER': 'false'
-}
-
-"""
 SERVICES
 """
-# GOOGLE_ANALYTICS = {
-#     'ACCOUNT_ID': 'none',
-#     'DOMAIN': PRODUCTION_S3_BUCKET['bucket_name'],
-#     'TOPICS': '' # e.g. '[1014,3,1003,1002,1001]'
-# }
+GOOGLE_ANALYTICS = {
+    'ACCOUNT_ID': 'none', #add id here
+    'DOMAIN': PRODUCTION_S3_BUCKET['bucket_name'],
+    'TOPICS': '' # e.g. '[1014,3,1003,1002,1001]'
+}
 
-# DISQUS_API_KEY = 'tIbSzEhGBE9NIptbnQWn4wy1gZ546CsQ2IHHtxJiYAceyyPoAkDkVnQfCifmCaQW'
-# DISQUS_UUID = '$NEW_DISQUS_UUID'
+DISQUS_API_KEY = ''
+DISQUS_UUID = ''
 
 """
 Utilities
