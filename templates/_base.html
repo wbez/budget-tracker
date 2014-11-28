@@ -45,6 +45,8 @@
         <ul class="site-links">
   
         <ul class="social-links">
+            <li class="twitter"><a rel="external" href="http://twitter.com/share?text={{ COPY.sharing.twitter_text|urlencode }}&amp;url={{ SHARE_URL|urlencode }}" alt="Share on Twitter" target="_blank" onclick="_gaq.push(['_trackEvent', '{{ PROJECT_SLUG }}', 'tweet', 'nav']);"><i class="fa fa-twitter"></i></a></li>
+            <li class="facebook"><a rel="external" href="https://www.facebook.com/dialog/feed?app_id={{ FACEBOOK_APP_ID }}&amp;link={{ SHARE_URL|urlencode }}&amp;name={{ COPY.sharing.facebook_title|urlencode }}&amp;picture={{ FACEBOOK_IMAGE_URL|urlencode }}&amp;redirect_uri={{ SHARE_URL|urlencode }}" alt="Share on Facebook" target="_blank" onclick="_gaq.push(['_trackEvent', '{{ PROJECT_SLUG }}', 'facebook', 'nav']);"><i class="fa fa-facebook"></i></a></li>
 
         </ul>
 
@@ -80,7 +82,9 @@
         <div class="secondary">
             <p>&copy;2014 WBEZ</p>
             <ul>
-                <li id="footerContact"><a href="">Contact</a></li>
+                <li id="footerContact"><a href="http://www.wbez.org/contact">Contact</a></li>
+                <li id="footerContact"><a href="https://www.chicagopublicmedia.org/page/privacy-policy">Privacy Policy</a></li>
+                <li id="footerContact"><a href="https://www.chicagopublicmedia.org/give/support-wbez-0">Donate</a></li>
             </ul>
         </div>
     </footer>
