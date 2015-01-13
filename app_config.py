@@ -22,7 +22,7 @@ PROJECT_FILENAME = '$NEW_PROJECT_FILENAME'
 
 # The name of the repository containing the source
 REPOSITORY_NAME = '$NEW_REPOSITORY_NAME'
-GITHUB_USERNAME = 'chagan'
+GITHUB_USERNAME = 'wbez'
 REPOSITORY_URL = 'git@github.com:%s/%s.git' % (GITHUB_USERNAME, REPOSITORY_NAME)
 REPOSITORY_ALT_URL = None # 'git@bitbucket.org:nprapps/%s.git' % REPOSITORY_NAME'
 
@@ -94,7 +94,7 @@ DEBUG = True
 """
 COPY EDITING
 """
-COPY_GOOGLE_DOC_URL = 'https://docs.google.com/spreadsheet/ccc?key=0AkY5o_aAkwFydEctaXllbzlGUGRLanVQc0hSMlo5YXc'
+COPY_GOOGLE_DOC_URL = 'https://docs.google.com/a/chicagopublicradio.org/spreadsheet/ccc?key=0Atv9GAazkNEXdGlpR0tHTS1UN0VoSlVycVdVa1dIM2c'
 COPY_PATH = 'data/copy.xlsx'
 
 """
