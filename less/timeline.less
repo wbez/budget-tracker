@@ -1,0 +1,62 @@
+.bar.positive {
+  fill: steelblue;
+}
+
+.bar.negative {
+  fill: brown;
+}
+
+#timeline {
+	font: 14px/1.4 Arial, Helvetica, sans-serif;
+	color: #333;
+}
+
+.axis {
+    font-size: 12px;
+    fill: #999;
+}
+.axis path,
+.axis line {
+    fill: none;
+    stroke: #666;
+    shape-rendering: crispEdges;
+}
+.axis.y path { display: none; }
+.axis.y .tick line { display: none; }
+
+.grid path { display: none; }
+.grid .tick {
+    stroke: #ccc;
+    stroke-dasharray: 1px 3px;
+    stroke-width: 1px;
+    shape-rendering: crispEdges;
+}
+.grid.y .tick:first-child { display: none; }
+
+.bars rect { 
+    fill: #17807E;
+    shape-rendering: crispEdges;
+}
+
+.value text { font-size: 10px; }
+.value text.outer { fill: #999; }
+.value text.inner { fill: #fff; }
+
+.labels {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border: none;
+}
+.labels li {
+    position: absolute;
+    text-align: right;
+    font-size: 14px;
+    line-height: 1.3;
+    display: table;
+}
+.labels li span {
+    display: table-cell;
+    vertical-align: middle;
+}

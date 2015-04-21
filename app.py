@@ -6,7 +6,8 @@ import argparse
 from flask import Flask, make_response, render_template
 
 import app_config
-from render_utils import make_context, smarty_filter, urlencode_filter
+from render_utils import smarty_filter, urlencode_filter
+from custom_context import make_context
 import static
 
 app = Flask(__name__)
@@ -27,27 +28,6 @@ def index():
 
     return make_response(render_template('index.html', **context))
 
-@app.route('/comments/')
-def comments():
-    """
-    Full-page comments view.
-    """
-    return make_response(render_template('comments.html', **make_context()))
-
-@app.route('/widget.html')
-def widget():
-    """
-    Embeddable widget example page.
-    """
-    return make_response(render_template('widget.html', **make_context()))
-
-@app.route('/test_widget.html')
-def test_widget():
-    """
-    Example page displaying widget at different embed sizes.
-    """
-    return make_response(render_template('test_widget.html', **make_context()))
-
 app.register_blueprint(static.static)
 
 # Boilerplate
@@ -55,7 +35,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument('-p', '--port')
     args = parser.parse_args()
-    server_port = 8000
+    server_port = 8023
 
     if args.port:
         server_port = int(args.port)

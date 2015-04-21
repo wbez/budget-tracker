@@ -1,47 +1,105 @@
 {% extends '_base.html' %}
 
 {% block header_content %}
-<header>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
+
+    <div class="container-fluid headline-container">
+        <div class="row headline">
+            <div class="col-sm-4 col-sm-offset-7 title">
                 <h1>{{ COPY.content.project_name|smarty }}</h1>
-                <h2>{{ COPY.content.lorem_ipsum|smarty }}</h2>
+                <p>{{ COPY.content.subhed|smarty }}</p>
             </div>
         </div>
+        <div class="row byline">
+            &bull; Curated by <a href="https://twitter.com/tonyjarnold">Tony Arnold</a> &bull;
+        </div>
     </div>
-</header>
+    <div class="container">
+        <div class="row players">
+            <h2>The Players</h2>
+            <div class="subhed col-sm-6 col-sm-offset-3">{{COPY.content.players_subhed}}</div>
+            <div class="players-control">
+                <div class="subhed players-expand btn btn-default btn-small">See the players</div>
+                <div class="subhed players-collapse btn btn-default btn-small">Close the players</div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="col-sm-1"></div>
+            {% for player in COPY.players %}
+            <div class="col-sm-2 bio">
+                <img src="assets/images/{{player.image}}" alt="{{player.name}}" class="img-circle img-responsive">
+                <h3>{{player.name}}</h3>
+                <p>{{player.text}}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="row topics">
+            <h2>The Storylines</h2>
+            <div class="subhed col-sm-6 col-sm-offset-3">{{COPY.content.storylines_subhed}}</div>
+            <div class="clearfix"></div>
+            <div id="filters" class="center-block ">
+                {% for topic in TOPICS %}
+                <button class="tag {{topic.slug}} btn btn-default col-md-2 col-xs-6" data-filter="{{topic.slug}}">{{topic.topic}}</button>
+                {% endfor %}
+            </div>
+        </div>
+        <span class="clear-filters"><i class="fa fa-times-circle"></i> Clear filters</span>
+    </div>
+
 {% endblock %}
 
 
 {% block content %}
-<h1>{{ COPY.content.project_name }}</h1>
-
-<div id="story-meta">
-    <p class="byline">by <span>{{ COPY.content.byline }}</span></p>
-    <p class="dateblock">
-        <span class="date">{{ COPY.content.pubdate }}</span>
-        <span class="time"> {{ COPY.content.pubtime }}</span>
-    </p>
-</div>
-
-<h2>Example COPY list</h2>
-<dl>
-    {% for row in COPY.example_list %}
-    <dt>{{ row.term }}</dt><dd>{{ row.definition }}</dd>
-    {% endfor %}
-</dl>
-
-<h2>JST example</h2>
-<p id="template-example"></p>
+    <div id="items">
+        {% for item in ITEMS|sort(attribute='date_obj',reverse=True) %}
+        <div class="row item {% for tag in item.tags_slug %}{{tag}} {% endfor %}{% for topic in item.topics_slug %}{{topic}} {% endfor %}">
+            <div class="col-sm-3 meta">
+                <div class="topic">
+                    {% for topic in item.topics %}
+                        <span class="{{item.topics_slug[loop.index0]}} topic-btn" data-filter="{{item.topics_slug[loop.index0]}}">{{topic}}</span>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-sm-3 visible-xs">
+                <div class="date">{{item.date}}</div>
+                {% if item.tags %}
+                    <i class="fa fa-tag"></i>
+                    {% for tag in item.tags %}
+                        <span class="tags" data-filter="{{item.tags_slug[loop.index0]}}">{{tag}}</span>{% if not loop.last %},{%endif%} 
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <div class="col-sm-6">
+                {% include "%s.html"|format(item.template) ignore missing %} 
+            </div>
+            <div class="col-sm-3">
+                <div class="date hidden-xs">{{item.date}}</div>
+                {% if item.tags %}
+                <div class="tag-container hidden-xs">
+                    <i class="fa fa-tag"></i>
+                    {% for tag in item.tags %}
+                        <span class="tags" data-filter="{{item.tags_slug[loop.index0]}}">{{tag}}</span>{% if not loop.last %},{%endif%}
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% if item.annotation %}
+                    <div class="annotation">{{item.annotation}}</div>
+                {% endif %}     
+            </div>
+        </div>
+        {% endfor %}
+        <div id="noresults" class="row item">
+            <div class="col-sm-3 meta">
+            </div>
+            <div class="col-sm-6">
+                No results.
+            </div>
+            <div class="col-sm-3">
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
+{% block extra_foot %}
+<script>
 
-{% block wide_content %}
-<div class="row">
-    <div class="col-md-12">
-        <h2>{{ COPY.content.footer_title }}</h2>
-        <p>{{ COPY.content.lorem_ipsum }}</p>
-    </div>
-</div>
+</script>
 {% endblock %}

@@ -94,20 +94,20 @@ DEBUG = True
 """
 COPY EDITING
 """
-COPY_GOOGLE_DOC_URL = 'https://docs.google.com/a/chicagopublicradio.org/spreadsheet/ccc?key=0Atv9GAazkNEXdGlpR0tHTS1UN0VoSlVycVdVa1dIM2c'
+COPY_GOOGLE_DOC_URL = 'https://docs.google.com/a/chicagopublicradio.org/spreadsheet/ccc?key=1zssUj8Z6_f7lmsp7Xr1kBDqPjCd6bGpROiyH9Ey7-Fw'
 COPY_PATH = 'data/copy.xlsx'
 
 """
 SHARING
 """
-SHARE_URL = 'http://%s/%s/' % (PRODUCTION_S3_BUCKET['bucket_name'], PROJECT_SLUG)
+SHARE_URL = 'http://interactive.wbez.org/rauner/'
 
 """
 SERVICES
 """
 GOOGLE_ANALYTICS = {
-    'ACCOUNT_ID': 'none', #add id here
-    'DOMAIN': PRODUCTION_S3_BUCKET['bucket_name'],
+    'ACCOUNT_ID': 'UA-369047-1', #add id here
+    'DOMAIN': 'wbez.org',
     'TOPICS': '' # e.g. '[1014,3,1003,1002,1001]'
 }
 
@@ -168,10 +168,10 @@ def configure_targets(deployment_target):
         DEBUG = True
     else:
         S3_BUCKET = None
-        S3_BASE_URL = 'http://127.0.0.1:8000'
+        S3_BASE_URL = 'http://127.0.0.1:8023'
         S3_DEPLOY_URL = None 
         SERVERS = []
-        SERVER_BASE_URL = 'http://127.0.0.1:8001/%s' % PROJECT_SLUG
+        SERVER_BASE_URL = 'http://127.0.0.1:8023/%s' % PROJECT_SLUG
         SERVER_LOG_PATH = '/tmp'
         DISQUS_SHORTNAME = ''
         DEBUG = True
