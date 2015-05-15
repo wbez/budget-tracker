@@ -48,6 +48,7 @@ $( document ).ready(function() {
         var $parent = $(this).parent();
         var filters = [];
         var directory = '';
+        $('.active-filters').html('');
         if ($(this).hasClass("active")) {
                 $( "button[data-filter='"+$(this).attr('data-filter')+"'],.tags[data-filter='"+$(this).attr('data-filter')+"'],.topic-btn[data-filter='"+$(this).attr('data-filter')+"']" ).removeClass("active")
             } else {
@@ -62,6 +63,7 @@ $( document ).ready(function() {
             };
             console.log(filters);
         });
+
         selector = filters.join(',');
         console.log(selector)
         if (filters.length>0){
@@ -75,15 +77,6 @@ $( document ).ready(function() {
         hasher.setHash( directory, selector );
         return false;
     });
-
-    // $('.tags').click(function(){
-    //     var filters = []
-    //     filters.push($(this).attr('data-filter'));
-    //     selector = $(this).attr('data-filter');
-    //     console.log(selector);
-    //     hasher.setHash( 'tag', selector );
-    //     return false;
-    // });
 
     $('.clear-filters').click(function(){
         $("button.tag,.tags,.topic-btn").removeClass("active");
@@ -121,25 +114,9 @@ $( document ).ready(function() {
                 $( "button[data-filter='"+tagsArray[i]+"'],.tags[data-filter='"+tagsArray[i]+"'],.topic-btn[data-filter='"+tagsArray[i]+"']" ).addClass("active");
             };
             $items.isotope({ filter: filter });
-        } else if (directory=="card"){
-            $cardID = $("#"+tagString);
-            $('.modal-title').empty();
-            $('.modal-body').empty();
-            
-            var content = $cardID.children("img").attr("src");
-            var title = $cardID.find('> * > .wish').html();  
-            var image  = $cardID.attr('image');
-            var w = $(".container.cards").width();
-            $('.modal-title').html(title);
-            $('.modal-body').html("<img class='modal-photo' src='images/"+image+".jpg'/>");
-            $('.modal-photo').css('max-height', $(window).height() * 0.75);
-            $('#myModal').modal();
         } else {
             $items.isotope({ filter: '*' });
         };
-
-        // display message box if no filtered items
-
       }
 
     $container.isotope( 'on', 'arrangeComplete', function(filteredItems){
