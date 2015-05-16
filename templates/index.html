@@ -37,11 +37,16 @@
             <div class="clearfix"></div>
             <div id="filters" class="center-block ">
                 {% for topic in TOPICS %}
-                <button class="tag {{topic.slug}} btn btn-default col-md-2 col-xs-6" data-filter="{{topic.slug}}">{{topic.topic}}</button>
+                <button class="tag {{topic.slug}} simplebox btn btn-default col-md-2 col-xs-6" data-filter="{{topic.slug}}">{{topic.topic}}</button>
                 {% endfor %}
             </div>
         </div>
-        <span class="clear-filters"><i class="fa fa-times-circle"></i> Clear filters</span>
+        <div class="row filter-text" data-spy="affix">
+            
+            <span class="active-filters"></span>
+            <span class="clear-filters"></span>
+            
+        </div>
     </div>
 
 {% endblock %}

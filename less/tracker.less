@@ -1,49 +1,54 @@
+.btn.inactive {
+	background-color: #e9e9e9 !important; 
+	border: 3px solid #e9e9e9 !important;
+}
+
 .btn.finances, span.finances {
 	background-color:#D8472B;
 	border: 3px solid #D8472B;
 }
-.btn.finances.active {
-	
+.btn.finances.inactive {
+	color:#D8472B;
 }
 
 .btn.ethics, span.ethics {
 	background-color:#E38D2C;
 	border: 3px solid #E38D2C;
 }
-.btn.ethics.active {
-	
+.btn.ethics.inactive {
+	color:#E38D2C;
 }
 
 .btn.unions, span.unions {
 	background-color:#EFC637;
 	border: 3px solid #EFC637;
 }
-.btn.unions.active {
-	
+.btn.unions.inactive {
+	color:#EFC637;
 }
 
 .btn.socialservices, span.socialservices {
 	background-color:#17807E;
 	border: 3px solid #17807E;
 }
-.btn.socialservices.active {
-	
+.btn.socialservices.inactive {
+	color:#17807E;
 }
 
 .btn.criminaljustice, span.criminaljustice {
 	background-color:#51AADE;
 	border: 3px solid #51AADE;
 }
-.btn.criminaljustice.active {
-	
+.btn.criminaljustice.inactive {
+	color:#51AADE;
 }
 
 .btn.education, span.education {
 	background-color:#725DFF;
 	border: 3px solid #725DFF;
 }
-.btn.education.active {
-	
+.btn.education.inactive {
+	color:#725DFF;
 }
 
 .title p {
@@ -147,7 +152,6 @@ body:after{
 }
 
 .topic-btn {
-	cursor:pointer;
 }
 
 #content {
@@ -251,7 +255,7 @@ nav {
 }
 
 .btn.tag.active {
-	border: 3px solid #999;
+	// border: 3px solid #999;
 	opacity:1;
 }
 
@@ -296,6 +300,28 @@ nav {
 
 .clear-filters:hover {
 	color:#0b8db3;
+}
+
+.filter-text {
+	font-family:'Roboto Condensed',Arial,sans-serif;
+	background-color: #fff;
+	color:#333;
+	margin-bottom: 50px;
+	font-size: 18px;
+	z-index:99;
+	padding: 5px 15px 5px 15px;
+}
+
+.affix {
+    position: fixed;
+    top: 0;
+ }
+
+.simplebox {
+  outline: none;
+  -webkit-box-shadow: none !important;
+  -moz-box-shadow: none !important;
+  box-shadow: none !important;
 }
 
 @media (min-width: 768px) {
