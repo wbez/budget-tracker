@@ -2,6 +2,10 @@
 <html lang="en">
 
 <head>
+    <!-- CHARTBEAT -->
+    <script type="text/javascript">
+        var _sf_startpt=(new Date()).getTime();
+    </script>
     <title>{{ COPY.content.project_name }}</title>
 
     <!-- META TAGS -->
@@ -22,6 +26,11 @@
 </head>
 <body>
 
+    <!-- ANALYTICS JAVASCRIPT -->
+    {{ JS.push('js/app_config.js') }}
+    {{ JS.push('js/analytics.js') }}
+    {{ JS.render('js/app-header.min.js') }}
+
     <a class="sr-only" href="#content">Skip To Content</a>
 
     {% block outer_content %}
@@ -40,10 +49,7 @@
           <polygon fill="#FFFFFF" points="330.6,40.7 330.6,17.9 399.7,17.9 399.7,42.8 351.6,147.4 399.7,147.4 399.7,170.2 324.7,170.2 324.7,145.3 373.4,40.7"></polygon>
         </g>
         </svg>
-      </a>
-
-        <ul class="site-links">
-  
+      </a>  
         <ul class="social-links">
             <li class="twitter"><a rel="external" href="http://twitter.com/share?text={{ COPY.share.twitter_text|urlencode }}&amp;url={{ COPY.share.share_url|urlencode }}" alt="Share on Twitter" target="_blank" onclick="_gaq.push(['_trackEvent', '{{ PROJECT_SLUG }}', 'tweet', 'nav']);"><i class="fa fa-twitter"></i></a></li>
             <li class="facebook"><a rel="external" href="https://www.facebook.com/sharer/sharer.php?u={{COPY.share.share_url}}" alt="Share on Facebook" target="_blank" onclick="_gaq.push(['_trackEvent', '{{ PROJECT_SLUG }}', 'facebook', 'nav']);"><i class="fa fa-facebook"></i></a></li>
@@ -83,6 +89,7 @@
     {% endblock outer_content %}
 
     {% block comments %}
+
     {% endblock %}
 
     {{ JS.push('js/lib/jquery.js') }}
@@ -92,6 +99,7 @@
     {{ JS.push('js/lib/moment.js') }}
     {{ JS.push('js/lib/ZeroClipboard.js') }}
     {{ JS.push('js/app_config.js') }}
+
     {{ JS.push('js/copy.js') }}
     {{ JS.push('js/console.js') }}
     {{ JS.push('js/templates.js') }}
@@ -110,5 +118,9 @@
     {% block extra_foot %}
     {% endblock extra_foot %}
 
+    {# Setup Chartbeat last! #}
+    <script type="text/javascript">
+        $(ANALYTICS.setupChartbeat);
+    </script>
 </body>
 </html>

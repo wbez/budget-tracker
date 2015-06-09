@@ -1,15 +1,21 @@
 // Global jQuery references
+<<<<<<< HEAD
 var $shareModal = null;
 var $commentCount = null;
 
 // Global state
 var firstShareLoad = true;
 
+=======
+var $commentCount = null;
+
+>>>>>>> upstream/master
 /*
  * Run on page load.
  */
 var onDocumentLoad = function(e) {
     // Cache jQuery references
+<<<<<<< HEAD
     $shareModal = $('#share-modal');
     $commentCount = $('.comment-count');
 
@@ -27,6 +33,14 @@ var onDocumentLoad = function(e) {
 
     renderExampleTemplate();
     getCommentCount(showCommentCount);
+=======
+    $commentCount = $('.comment-count');
+
+    renderExampleTemplate();
+    getCommentCount(showCommentCount);
+
+    SHARE.setup();
+>>>>>>> upstream/master
 }
 
 /*
@@ -59,6 +73,7 @@ var showCommentCount = function(count) {
     }
 }
 
+<<<<<<< HEAD
 /*
  * Share modal opened.
  */
@@ -88,4 +103,6 @@ var onClippyCopy = function(e) {
     _gaq.push(['_trackEvent', APP_CONFIG.PROJECT_SLUG, 'summary-copied']);
 }
 
+=======
+>>>>>>> upstream/master
 $(onDocumentLoad);

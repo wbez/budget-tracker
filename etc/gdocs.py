@@ -30,9 +30,8 @@ class GoogleDoc(object):
     gid = '0'
 
     # You can change these with kwargs but it's not recommended.
-    #spreadsheet_url = 'https://spreadsheets.google.com/feeds/download/spreadsheets/Export?key=%(key)s&exportFormat=%(format)s'
-    spreadsheet_url = 'https://www.googleapis.com/drive/v2/files/%(key)s?alt=media'
-    new_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/%(key)s/export?format=%(format)s&id=%(key)s'
+    spreadsheet_url = 'https://spreadsheets.google.com/feeds/download/spreadsheets/Export?key=%(key)s&exportFormat=%(format)s&gid=%(gid)s'
+    new_spreadsheet_url = 'https://docs.google.com/spreadsheets/d/%(key)s/export?format=%(format)s&id=%(key)s&gid=%(gid)s'
     auth = None
     email = os.environ.get('APPS_GOOGLE_EMAIL', None)
     password = os.environ.get('APPS_GOOGLE_PASS', None)
@@ -84,13 +83,12 @@ class GoogleDoc(object):
             headers['Authorization'] = "GoogleLogin auth=%s" % self.auth
 
             url_params = { 'key': self.key, 'format': self.file_format, 'gid': self.gid }
-            url = self.spreadsheet_url % url_params
-            print url
+            url = self.new_spreadsheet_url % url_params
 
             r = requests.get(url, headers=headers)
 
             if r.status_code != 200:
-                url = self.new_spreadsheet_url % url_params
+                url = self.spreadsheet_url % url_params
                 r = requests.get(url, headers=headers)
 
             if r.status_code != 200:
