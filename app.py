@@ -14,8 +14,9 @@ import oauth
 import static
 
 from flask import Flask, make_response, render_template
-from render_utils import make_context, smarty_filter, urlencode_filter
+from render_utils import smarty_filter, urlencode_filter
 from werkzeug.debug import DebuggedApplication
+from custom_context import make_context 
 
 app = Flask(__name__)
 app.debug = app_config.DEBUG
